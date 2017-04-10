@@ -1,199 +1,83 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>selenium + phantomjs (Python) | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="爬html里嵌套iframe的网页 关于selenium的使用我就不再赘述了，就一句重要的话，浪费了我好久时间，权当交学费了  1driver.switch_to_frame(iframeID)">
-<meta name="keywords">
-<meta property="og:type" content="article">
-<meta property="og:title" content="selenium + phantomjs (Python)">
-<meta property="og:url" content="http://yoursite.com/2017/03/22/selenium/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="爬html里嵌套iframe的网页 关于selenium的使用我就不再赘述了，就一句重要的话，浪费了我好久时间，权当交学费了  1driver.switch_to_frame(iframeID)">
-<meta property="og:updated_time" content="2017-03-22T00:34:06.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="selenium + phantomjs (Python)">
-<meta name="twitter:description" content="爬html里嵌套iframe的网页 关于selenium的使用我就不再赘述了，就一句重要的话，浪费了我好久时间，权当交学费了  1driver.switch_to_frame(iframeID)">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
+<!doctype html>
+<html lang="en">
+    <head>
+		
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <link rel="shortcut icon" href="/asset/guolin.png"/>
+        <link rel="canonical" href="http://guolinn.com/">
+        <link rel="alternate" type="application/rss+xml" title="John Doe" href="/atom.xml">
+        <title>selenium + phantomjs (Python) | Hexo</title>
+        <meta name="description" content="{{meta_description}}">
 
-</head>
+        <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/styles/crisp.css">
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
+    </head>
+    
+		<body class="post-template">
+	
+
+        <header id="header">
+            <a id="logo" href="/"><img src="/asset/guolin.png" alt="Hexo" /></a>
+            <h1><a href="/">John Doe</a></h1>
+            <p></p>
+            <div id="follow-icons">
+                  <a href="/atom.xml"><i class="fa fa-rss-square fa-2x"></i></a>
   </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-selenium" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/22/selenium/" class="article-date">
-  <time datetime="2017-03-22T00:20:05.000Z" itemprop="datePublished">2017-03-22</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+<h6><a href="/about">About</a></h6>
+        </header>
+
+        <main id="content">
         
-  
-    <h1 class="article-title" itemprop="name">
-      selenium + phantomjs (Python)
-    </h1>
+
+<article class="post">
+  March 22, 2017
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="爬html里嵌套iframe的网页"><a href="#爬html里嵌套iframe的网页" class="headerlink" title="爬html里嵌套iframe的网页"></a>爬html里嵌套iframe的网页</h2><ul>
+  <h1 class="post-title">selenium + phantomjs (Python)</h1>
+  <section class="post-content article-entry">
+    <h2 id="爬html里嵌套iframe的网页"><a href="#爬html里嵌套iframe的网页" class="headerlink" title="爬html里嵌套iframe的网页"></a>爬html里嵌套iframe的网页</h2><ul>
 <li>关于selenium的使用我就不再赘述了，就一句重要的话，浪费了我好久时间，权当交学费了</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">driver.switch_to_frame(iframeID)</div></pre></td></tr></table></figure>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/22/selenium/" data-id="cj1bz396v00036qqq72e1eyx3" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2017/03/23/UsefulFunction/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ancien</strong>
-      <div class="article-nav-title">记录自己Python Spider一些常用的函数和脚本</div>
-    </a>
-  
-</nav>
-
-  
+  </section>
+  <footer class="post-footer">
+    <!--
+    <section class="author">
+      <h4>John Doe</h4>
+      <p></p>
+    </section>
+    -->
+  </footer>
 </article>
 
-</section>
-        
-          <aside id="sidebar">
-  
+<nav class="pagination" role="pagination">
     
-
-  
+    <span class="page-number">•</span>
     
-
-  
+    <a class="older-posts" href="/2017/03/23/UsefulFunction/">
+        <!--记录自己Python Spider一些常用的函数和脚本--> next →
+    </a>
     
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/04/05/contos/">no internal routing support, rebuild with pcre support !!!解决方案</a>
-          </li>
-        
-          <li>
-            <a href="/2017/04/05/apache-config/">centOS开启apache让外网访问：开启80端口</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/23/UsefulFunction/">记录自己Python Spider一些常用的函数和脚本</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/22/selenium/">selenium + phantomjs (Python)</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
 </nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
-</body>
+        </main>
+        <footer id="footer">
+            <section id="footer-message">&copy; 2017 John Doe. All rights reserved. Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. <a href="https://github.com/guolin/crisp-hexo-theme" target="_blank">crisp</a> theme by <a href="guolin.github.io" target="_blank">Guo Lin</a>.</section>
+        </footer>
+    </body>
 </html>
+
+
