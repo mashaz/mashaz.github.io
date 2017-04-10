@@ -8,7 +8,7 @@
         <link rel="shortcut icon" href="/asset/cartman.png"/>
         <link rel="canonical" href="http://guolinn.com/">
         <link rel="alternate" type="application/rss+xml" title="mashaz" href="">
-        <title>mashaz&#39;s blog</title>
+        <title>macOS破解WPA/WPA2 wifi密码 | mashaz&#39;s blog</title>
         <meta name="description" content="{{meta_description}}">
 
         <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
 
     </head>
     
-		<body class="home-template">
+		<body class="post-template">
 	
 
         <header id="header">
@@ -40,71 +40,56 @@
 
         <main id="content">
         
-<section id="{{id}}" class="{{post_class}}">
-  <h3 class="post-title">
-  <a href="/2017/04/10/wifi-crack/">macOS破解WPA/WPA2 wifi密码</a>
-  
-  <span class="separator"> &middot; </span>
-  
+
+<article class="post">
   April 10, 2017
   
-  
-  </h3>
-</section>
 
-<section id="{{id}}" class="{{post_class}}">
-  <h3 class="post-title">
-  <a href="/2017/04/05/contos/">no internal routing support, rebuild with pcre support !!!解决方案</a>
-  
-  <span class="separator"> &middot; </span>
-  
-  April 5, 2017
-  
-  
-  </h3>
-</section>
+  <h1 class="post-title">macOS破解WPA/WPA2 wifi密码</h1>
+  <section class="post-content article-entry">
+    <ul>
+<li><p>安装aircrack-ng</p>
+</li>
+<li><p>查看周围wifi</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport <span class="_">-s</span></div></pre></td></tr></table></figure>
+<ul>
+<li>等待连接 获取握手包</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport en0 sniff 6</div><div class="line"><span class="comment">#en0为你的无线网卡 通过ifconfig查看 </span></div><div class="line"><span class="comment">#6为需要破解的wifi channel,通过上一条命令获得</span></div></pre></td></tr></table></figure>
+<ul>
+<li><p>control + c , 抓的包保存在/tmp</p>
+</li>
+<li><p>暴力破解</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">aircrack-ng -w 字典.txt -b BBSID来自第一条命令 握手包目录</div></pre></td></tr></table></figure>
+<ul>
+<li>等吧,接下来你的字典了</li>
+</ul>
 
-<section id="{{id}}" class="{{post_class}}">
-  <h3 class="post-title">
-  <a href="/2017/04/05/apache-config/">centOS开启apache让外网访问：开启80端口</a>
-  
-  <span class="separator"> &middot; </span>
-  
-  April 5, 2017
-  
-  
-  </h3>
-</section>
-
-<section id="{{id}}" class="{{post_class}}">
-  <h3 class="post-title">
-  <a href="/2017/03/23/UsefulFunction/">记录自己Python Spider一些常用的函数和脚本</a>
-  
-  <span class="separator"> &middot; </span>
-  
-  March 23, 2017
-  
-  
-  </h3>
-</section>
-
-<section id="{{id}}" class="{{post_class}}">
-  <h3 class="post-title">
-  <a href="/2017/03/22/selenium/">selenium + phantomjs (Python)</a>
-  
-  <span class="separator"> &middot; </span>
-  
-  March 22, 2017
-  
-  
-  </h3>
-</section>
+  </section>
+  <footer class="post-footer">
+    <!--
+    <section class="author">
+      <h4>mashaz</h4>
+      <p></p>
+    </section>
+    -->
+  </footer>
+</article>
 
 <nav class="pagination" role="pagination">
-  
-  <span class="page-number">Page 1 of 1</span>
-  
+    
+    <a class="newer-posts" href="/2017/04/05/contos/">
+        ← prev <!--no internal routing support, rebuild with pcre support !!!解决方案-->
+    </a>
+    
+    <span class="page-number">•</span>
+    
 </nav>
+
 
         </main>
         <footer id="footer">
