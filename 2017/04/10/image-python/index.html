@@ -8,7 +8,7 @@
         <link rel="shortcut icon" href="/asset/cartman.png"/>
         <link rel="canonical" href="http://guolinn.com/">
         <link rel="alternate" type="application/rss+xml" title="mashaz" href="">
-        <title>no internal routing support, rebuild with pcre support !!!解决方案 | mashaz&#39;s blog</title>
+        <title>image-with-python | mashaz&#39;s blog</title>
         <meta name="description" content="{{meta_description}}">
 
         <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
@@ -42,23 +42,22 @@
         
 
 <article class="post">
-  April 5, 2017
+  April 10, 2017
   
     <span class="taglist">  &middot; 
     
     
-      <a href='/tags/centos-python/'>centos,python</a> 
+      <a href='/tags/python/'>python</a> 
     
     </span>
   
 
-  <h1 class="post-title">no internal routing support, rebuild with pcre support !!!解决方案</h1>
+  <h1 class="post-title">image-with-python</h1>
   <section class="post-content article-entry">
-    <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pip uninstall uwsgi</div><div class="line">yum install -y pcre pcre-devel pcre-static</div><div class="line">pip install uwsgi -I --no-cache-dir</div></pre></td></tr></table></figure>
-<ul>
-<li><a href="http://stackoverflow.com/questions/21669354/rebuild-uwsgi-with-pcre-support" target="_blank" rel="external">http://stackoverflow.com/questions/21669354/rebuild-uwsgi-with-pcre-support</a></li>
+    <h2 id="python-Image库的一些图片裁剪操作"><a href="#python-Image库的一些图片裁剪操作" class="headerlink" title="python Image库的一些图片裁剪操作"></a>python Image库的一些图片裁剪操作</h2><ul>
+<li>selenium截的网页全屏图免不了批量裁剪,下面使用Image库进行一些裁剪操作</li>
 </ul>
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">from PIL import Image</div><div class="line"></div><div class="line">FileNames=os.listdir(<span class="string">'images'</span>) <span class="comment">#image文件夹</span></div><div class="line">i = 0</div><div class="line"><span class="keyword">for</span> imgfile <span class="keyword">in</span> FileNames:</div><div class="line">	<span class="keyword">if</span> imgfile!=<span class="string">'.DS_Store'</span> and imgfile!=<span class="string">'orgin_croped'</span>:</div><div class="line">		img = Image.open(<span class="string">"images/%s"</span>%(imgfile))</div><div class="line">		region = (344,344,750,830)  <span class="comment">#数字请自行调整</span></div><div class="line">		<span class="built_in">print</span>(<span class="string">"图片宽&#123;0&#125;px,高&#123;1&#125;px"</span>.format(img.size[0],img.size[1]))</div><div class="line">		<span class="comment">#裁切图片</span></div><div class="line">		cropImg = img.crop(region)</div><div class="line">		cropImg.save(<span class="string">'imagesCroped/%s'</span>%(imgfile))</div></pre></td></tr></table></figure>
   </section>
   <footer class="post-footer">
     <!--
@@ -72,15 +71,11 @@
 
 <nav class="pagination" role="pagination">
     
-    <a class="newer-posts" href="/2017/04/05/apache-config/">
-        ← prev <!--centOS开启apache让外网访问：开启80端口-->
+    <a class="newer-posts" href="/2017/04/10/wifi-crack/">
+        ← prev <!--macOS破解WPA/WPA2 wifi密码-->
     </a>
     
     <span class="page-number">•</span>
-    
-    <a class="older-posts" href="/2017/04/10/wifi-crack/">
-        <!--macOS破解WPA/WPA2 wifi密码--> next →
-    </a>
     
 </nav>
 
