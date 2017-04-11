@@ -54,7 +54,7 @@
 
   <h1 class="post-title">centOS开启apache让外网访问：开启80端口</h1>
   <section class="post-content article-entry">
-    <h3 id="开启apache后只需iptables开启80端口便可成功让外网访问到"><a href="#开启apache后只需iptables开启80端口便可成功让外网访问到" class="headerlink" title="开启apache后只需iptables开启80端口便可成功让外网访问到"></a>开启apache后只需iptables开启80端口便可成功让外网访问到</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#iptables -I INPUT 1 -i eth0 -p tcp --dport 80 -m state --state NEW,ESTABLISHED</span></div><div class="line">-j ACCEPT</div><div class="line"><span class="comment">#service iptables save</span></div><div class="line"><span class="comment">#service iptables restart</span></div></pre></td></tr></table></figure>
+    <h3 id="开启apache后只需iptables开启80端口便可成功让外网访问到"><a href="#开启apache后只需iptables开启80端口便可成功让外网访问到" class="headerlink" title="开启apache后只需iptables开启80端口便可成功让外网访问到"></a>开启apache后只需iptables开启80端口便可成功让外网访问到</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">iptables -I INPUT 1 -i eth0 -p tcp --dport 80 -m state --state NEW,ESTABLISHED</div><div class="line">-j ACCEPT</div><div class="line">service iptables save</div><div class="line">service iptables restart</div></pre></td></tr></table></figure>
 
   </section>
   <footer class="post-footer">
