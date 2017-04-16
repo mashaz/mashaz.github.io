@@ -54,13 +54,30 @@
 
   <h1 class="post-title">CentOS 6 + Gunicorn + Nginx + Django 部署</h1>
   <section class="post-content article-entry">
-    <h3 id="试了很多Django部署到CentOS-这种方法是自己唯一实现的。"><a href="#试了很多Django部署到CentOS-这种方法是自己唯一实现的。" class="headerlink" title="试了很多Django部署到CentOS,这种方法是自己唯一实现的。"></a>试了很多Django部署到CentOS,这种方法是自己唯一实现的。</h3><h3 id="照了很多教程做，遇到很多坑，自己一个个google摸索出来的。"><a href="#照了很多教程做，遇到很多坑，自己一个个google摸索出来的。" class="headerlink" title="照了很多教程做，遇到很多坑，自己一个个google摸索出来的。"></a>照了很多教程做，遇到很多坑，自己一个个google摸索出来的。</h3><h3 id="这里把一些坑和要点记录一下，做个参考。"><a href="#这里把一些坑和要点记录一下，做个参考。" class="headerlink" title="这里把一些坑和要点记录一下，做个参考。"></a>这里把一些坑和要点记录一下，做个参考。</h3><h4 id="nginx配置文件，位于-etc-nginx-conf-d-yourconfig-conf"><a href="#nginx配置文件，位于-etc-nginx-conf-d-yourconfig-conf" class="headerlink" title="nginx配置文件，位于/etc/nginx/conf.d/yourconfig.conf"></a>nginx配置文件，位于/etc/nginx/conf.d/yourconfig.conf</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> server &#123;</div><div class="line">      listen       80;</div><div class="line">      server_name  yourdomain.com;</div><div class="line">      location  / &#123;</div><div class="line">          proxy_pass            http://127.0.0.1:8000;</div><div class="line">          proxy_redirect        off;</div><div class="line">          proxy_set_header      Host             $host;</div><div class="line">          proxy_set_header      X-Real-IP        $remote_addr;</div><div class="line">          proxy_set_header      X-Forwarded-For  $proxy_add_x_forwarded_for;</div><div class="line">          client_max_body_size  10m;</div><div class="line">      &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+    <ul>
+<li>试了很多Django部署到CentOS,这种方法是自己唯一实现的。</li>
+<li>照了很多教程做，遇到很多坑，自己一个个google摸索出来的。</li>
+<li>这里把一些坑和要点记录一下，做个参考。</li>
+</ul>
+<hr>
 <ul>
-<li>cd 到你的Django根文件夹</li>
-<li><p>vim <em>*</em>/setting.py 修改为 DEBUG = False</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nohup gunicorn yourproject.wsgi:application -b 127.0.0.1:8000 --reload &amp;</div></pre></td></tr></table></figure>
+<li>nginx配置文件，位于/etc/nginx/conf.d/yourconfig.conf</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"> server &#123;</div><div class="line">      listen       80;</div><div class="line">      server_name  yourdomain.com;</div><div class="line">      location  / &#123;</div><div class="line">          proxy_pass            http://127.0.0.1:8000;</div><div class="line">          proxy_redirect        off;</div><div class="line">          proxy_set_header      Host             $host;</div><div class="line">          proxy_set_header      X-Real-IP        $remote_addr;</div><div class="line">          proxy_set_header      X-Forwarded-For  $proxy_add_x_forwarded_for;</div><div class="line">          client_max_body_size  10m;</div><div class="line">      &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>cd 到你的Django根文件夹</p>
+</li>
+<li><p>vim <em>*</em>/setting.py 修改为 DEBUG = False```bash</p>
+<blockquote>
+<p>nohup gunicorn yourproject.wsgi:application -b 127.0.0.1:8000 –reload &amp;</p>
+</blockquote>
 </li>
 <li><p>后台开启gunicorn , “ nohup … &amp; ”为后台执行命令</p>
+</li>
+<li><p>关闭gunicorn</p>
+<blockquote>
+<p>ps -ef | grep gunicorn    –获取gunicorn进程号pid<br>kill -9 pid</p>
+</blockquote>
 </li>
 </ul>
 
