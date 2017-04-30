@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+    <head>
+		
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="">
+        <link rel="shortcut icon" href="/asset/cartman.png"/>
+        <link rel="canonical" href="http://guolinn.com/">
+        <link rel="alternate" type="application/rss+xml" title="mashaz" href="">
+        <title>分词结果生成词云wordcloud | mashaz&#39;s blog</title>
+        <meta name="description" content="{{meta_description}}">
+
+        <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/styles/crisp.css">
+        <meta name="HandheldFriendly" content="True" />
+        <meta name="MobileOptimized" content="320" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    
+		<body class="post-template">
+	
+
+        <header id="header">
+            <a id="logo" href="/"><img src="/asset/cartman.png" alt="mashaz's blog" /></a>
+            <h1><a href="/">mashaz</a></h1>
+            <p></p>
+            <div id="follow-icons">
+          <a href="http://github.com/mashaz"><i class="fa fa-github-square fa-2x"></i></a>
+          <a href="http://douban.com/mashaz"><i class="fa fa-douban-square fa-2x"></i></a>
+        </div>
+<h6><a href="/about">About</a></h6>
+        </header>
+
+        <main id="content">
+        
+
+<article class="post">
+  May 1, 2017
+  
+
+  <h1 class="post-title">分词结果生成词云wordcloud</h1>
+  <section class="post-content article-entry">
+    <h3 id="最近和同学参加了个外包竞赛，涉及到评论的分析，词云是个不错的展示。"><a href="#最近和同学参加了个外包竞赛，涉及到评论的分析，词云是个不错的展示。" class="headerlink" title="最近和同学参加了个外包竞赛，涉及到评论的分析，词云是个不错的展示。"></a>最近和同学参加了个外包竞赛，涉及到评论的分析，词云是个不错的展示。</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> wordcloud <span class="keyword">import</span> WordCloud,STOPWORDS,ImageColorGenerator</div><div class="line"><span class="keyword">from</span> scipy.misc <span class="keyword">import</span> imread</div><div class="line"></div><div class="line">sfile = open(<span class="string">'jieba.txt'</span>,<span class="string">'r'</span>)</div><div class="line">text = sfile.read().decode(<span class="string">'utf-8'</span>)</div><div class="line">bg_img = imread(<span class="string">'bg.png'</span>) <span class="comment">#词云背景图,可无</span></div><div class="line"></div><div class="line">wc_with_bg = WordCloud(</div><div class="line">	background_color = <span class="string">'white'</span>,    <span class="comment"># 设置背景颜色</span></div><div class="line">   	mask = bg_img,        <span class="comment"># 设置背景图片</span></div><div class="line">   	max_words = <span class="number">2000</span>,            <span class="comment"># 设置最大现实的字数</span></div><div class="line">   	stopwords = STOPWORDS,        <span class="comment"># 设置停用词</span></div><div class="line">   	font_path = <span class="string">'/Library/Fonts/Arial Unicode.ttf'</span>, <span class="comment"># 设置字体格式，如不设置显示不了中文，我这里为Mac下的字体</span></div><div class="line">   	max_font_size = <span class="number">50</span>,            <span class="comment"># 设置字体最大值</span></div><div class="line">   	random_state = <span class="number">30</span>,            <span class="comment"># 设置有多少种随机生成状态，即有多少种配色方案</span></div><div class="line"></div><div class="line">wc_with_bg.generate(text)</div><div class="line"></div><div class="line"><span class="comment"># plt.imshow(wc)</span></div><div class="line"><span class="comment"># plt.axis('off')</span></div><div class="line"><span class="comment"># plt.show()</span></div><div class="line"><span class="comment"># 显示</span></div><div class="line"></div><div class="line">wc_with_bg.to_file(<span class="string">'%s.jpg'</span>%(name)) <span class="comment"># 保存到当前路径</span></div></pre></td></tr></table></figure>
+<p><img src="http://i.imgur.com/Ez2SNuT.jpg" title="img"></p>
+
+  </section>
+  <footer class="post-footer">
+    <!--
+    <section class="author">
+      <h4>mashaz</h4>
+      <p></p>
+    </section>
+    -->
+  </footer>
+</article>
+
+<nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2017/04/18/fun-site-analysis/">
+        ← prev <!--有趣的网站逆向分析-->
+    </a>
+    
+    <span class="page-number">•</span>
+    
+</nav>
+
+
+        </main>
+        <footer id="footer">
+            <section id="footer-message">&copy; 2017 mashaz. All rights reserved. Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. <a href="https://github.com/guolin/crisp-hexo-theme" target="_blank">crisp</a> theme by <a href="guolin.github.io" target="_blank">Guo Lin</a>.</section>
+        </footer>
+    </body>
+</html>
+
+
