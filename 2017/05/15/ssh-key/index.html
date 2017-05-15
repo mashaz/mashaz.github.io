@@ -8,7 +8,7 @@
         <link rel="shortcut icon" href="/asset/cartman.png"/>
         <link rel="canonical" href="http://guolinn.com/">
         <link rel="alternate" type="application/rss+xml" title="mashaz" href="">
-        <title>自己常用的ffmpeg命令 | mashaz&#39;s blog</title>
+        <title>SSH免密码登录 | mashaz&#39;s blog</title>
         <meta name="description" content="{{meta_description}}">
 
         <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
@@ -42,45 +42,31 @@
         
 
 <article class="post">
-  May 7, 2017
-  
-    <span class="taglist">  &middot; 
-    
-    
-      <a href='/tags/ffmpeg/'>ffmpeg</a> 
-    
-    </span>
+  May 15, 2017
   
 
-  <h1 class="post-title">自己常用的ffmpeg命令</h1>
+  <h1 class="post-title">SSH免密码登录</h1>
   <section class="post-content article-entry">
     <ul>
-<li>youtube-dl下来的高清youtube视频和音频是分离的，这时候需要<blockquote>
-<p>ffmpeg -i audio.m4a -i video.webm  -y output.mp4</p>
-</blockquote>
-</li>
+<li>本地环境 macOS</li>
+<li>服务器 CentOS 6</li>
 </ul>
-<hr>
-<ul>
-<li>两个或多个视频文件合并<blockquote>
-<p>ffmpeg -f concat -i file.txt -c copy output.mp4</p>
-</blockquote>
+<ol>
+<li><p>在Mac中打开终端，切换到当前目录的~/.ssh目录下，查看是否已经存在key，如下图，如果存在id_rsa.pub文件，则可以跳过第2步直接看第3步，如果不存在请看第2步。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/.ssh</div><div class="line">ls</div></pre></td></tr></table></figure>
 </li>
-</ul>
-<hr>
-<ul>
-<li>file.txt位于执行目录<blockquote>
-<p>file ‘1.mp4’<br>file ‘2.mp4’</p>
-</blockquote>
+<li><p>生成RSA密钥，输入以下命令，其中邮箱地址选填写，然后连按3次回车，表示在默认路径生成，空密码。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C <span class="string">"yourname@domain.com"</span></div></pre></td></tr></table></figure>
 </li>
-</ul>
-<hr>
-<ul>
-<li>avi转mp4<blockquote>
-<p>ffmpeg -i input.avi -vcodec copy -acodec copy output.mp4</p>
-</blockquote>
+<li><p>复制密钥。切换到~/.ssh目录，打开id_rsa.pub文件，拷贝里面的一串内容。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
+<p> 其中，拷贝的那串内容长这样“ssh-rsa AAAAB3NzaC1yc2….”</p>
 </li>
-</ul>
+<li><p>ssh连接到你的服务器，然后同样切换到~/.ssh目录，如果没有这个目录，就使用mkdir .ssh命令创建一个，然后在authorized_keys文件里追加刚才拷贝的内容，保存然后退出ssh连接。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi ~/.ssh/authorized_keys</div></pre></td></tr></table></figure>
+<p> 至此，免密码登陆已经实现</p>
+</li>
+</ol>
 
   </section>
   <footer class="post-footer">
@@ -95,15 +81,11 @@
 
 <nav class="pagination" role="pagination">
     
-    <a class="newer-posts" href="/2017/05/04/csv-to-sqlite/">
-        ← prev <!--csv转换到sqlite3-->
+    <a class="newer-posts" href="/2017/05/07/ffmpeg/">
+        ← prev <!--自己常用的ffmpeg命令-->
     </a>
     
     <span class="page-number">•</span>
-    
-    <a class="older-posts" href="/2017/05/15/ssh-key/">
-        <!--SSH免密码登录--> next →
-    </a>
     
 </nav>
 
