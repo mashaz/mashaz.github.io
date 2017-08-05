@@ -1,7 +1,7 @@
 ---
 title: no internal routing support, rebuild with pcre support !!!解决方案
 date: 2017-04-05 15:37:25
-tags: centos
+tags: linux
 ---
 
 ```bash

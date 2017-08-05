@@ -1,7 +1,7 @@
 ---
 title: 将2个Django网站同时部署在CentOS(Nginx)上
 date: 2017-06-09 17:46:35
-tags: CentOS
+tags: linux
 ---
 
 * 在/etc/nginx/conf.d下新建一个Nginx	配置文件new_website.conf
