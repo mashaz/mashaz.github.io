@@ -8,25 +8,26 @@ tags: macOS
 
 由于Homebrew下载用的是curl, 我这有两种方法让curl走socks5
 
-1. 设置.curlrc
+* 设置.curlrc
 
 ```shell
 echo 'socks5 = "127.0.0.1:1080"' >> ~/.curlrc
 ```
 
-2. ss
+* ALL_PROXY
 
 ```shell
 export ALL_PROXY=socks5://127.0.0.1:1080
 ```
-我给这条命令设置了alias，用起来还是蛮方便的
 
-你可以```curl ip.cn```查看当前ip
+```shell
+curl ip.cn
+```
+
 
 ## python requests走socks5
 ```python
-pip install -U requests[socks]
-
+# pip install -U requests[socks]
 import requests
 resp = requests.get('http://go.to', 
                     proxies=dict(http='socks5://user:pass@host:port',

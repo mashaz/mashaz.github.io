@@ -227,26 +227,20 @@
                   <span class="badge new mdui-color-theme-accent" data-badge-caption="">2</span>
                 </a>
               
-                <a href="/tags/python/" class="mdui-list-item mdui-ripple" style="display: flex">
-                  python
-                  <div style="flex-grow: 1;"></div>
-                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">5</span>
-                </a>
-              
                 <a href="/tags/linux/" class="mdui-list-item mdui-ripple" style="display: flex">
                   linux
                   <div style="flex-grow: 1;"></div>
                   <span class="badge new mdui-color-theme-accent" data-badge-caption="">3</span>
                 </a>
               
-                <a href="/tags/js/" class="mdui-list-item mdui-ripple" style="display: flex">
-                  js
+                <a href="/tags/python/" class="mdui-list-item mdui-ripple" style="display: flex">
+                  python
                   <div style="flex-grow: 1;"></div>
-                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">5</span>
                 </a>
               
-                <a href="/tags/ffmpeg/" class="mdui-list-item mdui-ripple" style="display: flex">
-                  ffmpeg
+                <a href="/tags/js/" class="mdui-list-item mdui-ripple" style="display: flex">
+                  js
                   <div style="flex-grow: 1;"></div>
                   <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
                 </a>
@@ -263,16 +257,22 @@
                   <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
                 </a>
               
-                <a href="/tags/fun/" class="mdui-list-item mdui-ripple" style="display: flex">
-                  fun
+                <a href="/tags/ffmpeg/" class="mdui-list-item mdui-ripple" style="display: flex">
+                  ffmpeg
                   <div style="flex-grow: 1;"></div>
-                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">2</span>
+                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
                 </a>
               
                 <a href="/tags/HTTP/" class="mdui-list-item mdui-ripple" style="display: flex">
                   HTTP
                   <div style="flex-grow: 1;"></div>
                   <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+                </a>
+              
+                <a href="/tags/fun/" class="mdui-list-item mdui-ripple" style="display: flex">
+                  fun
+                  <div style="flex-grow: 1;"></div>
+                  <span class="badge new mdui-color-theme-accent" data-badge-caption="">2</span>
                 </a>
               
                 <a href="/tags/shell/" class="mdui-list-item mdui-ripple" style="display: flex">
@@ -399,16 +399,16 @@
         
         <div class="post-content mdui-typo no-margin" id="post-content">
           <h2 id="Homebrew设置socks5"><a href="#Homebrew设置socks5" class="headerlink" title="Homebrew设置socks5"></a>Homebrew设置socks5</h2><p>由于Homebrew下载用的是curl, 我这有两种方法让curl走socks5</p>
-<ol>
+<ul>
 <li>设置.curlrc</li>
-</ol>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">echo &apos;socks5 = &quot;127.0.0.1:1080&quot;&apos; &gt;&gt; ~/.curlrc</div></pre></td></tr></table></figure>
-<ol>
-<li>ss</li>
-</ol>
+<ul>
+<li>ALL_PROXY</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export ALL_PROXY=socks5://127.0.0.1:1080</div></pre></td></tr></table></figure>
-<p>我给这条命令设置了alias，用起来还是蛮方便的</p>
-<p>你可以<figure class="highlight plain"><figcaption><span>ip.cn```查看当前ip</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## python requests走socks5</div><div class="line">```python</div><div class="line">pip install -U requests[socks]</div><div class="line"></div><div class="line">import requests</div><div class="line">resp = requests.get(&apos;http://go.to&apos;, </div><div class="line">                    proxies=dict(http=&apos;socks5://user:pass@host:port&apos;,</div><div class="line">                                 https=&apos;socks5://user:pass@host:port&apos;))</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl ip.cn</div></pre></td></tr></table></figure>
+<h2 id="python-requests走socks5"><a href="#python-requests走socks5" class="headerlink" title="python requests走socks5"></a>python requests走socks5</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># pip install -U requests[socks]</span></div><div class="line"><span class="keyword">import</span> requests</div><div class="line">resp = requests.get(<span class="string">'http://go.to'</span>, </div><div class="line">                    proxies=dict(http=<span class="string">'socks5://user:pass@host:port'</span>,</div><div class="line">                                 https=<span class="string">'socks5://user:pass@host:port'</span>))</div></pre></td></tr></table></figure>
 <h2 id="git走socks5"><a href="#git走socks5" class="headerlink" title="git走socks5"></a>git走socks5</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git config --global http.proxy socks5://127.0.0.1:1080</div><div class="line">git config --global https.proxy socks5://127.0.0.1:1080</div><div class="line">git config --global --unset http.proxy</div><div class="line">git config --global --unset https.proxy</div></pre></td></tr></table></figure>
 <h2 id="youtube-dl走socks5"><a href="#youtube-dl走socks5" class="headerlink" title="youtube-dl走socks5"></a>youtube-dl走socks5</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">youtube-dl -f bestvideo+bestaudio/best  --proxy &apos;socks5://127.0.0.1&apos;</div></pre></td></tr></table></figure>
 <hr>
@@ -461,7 +461,7 @@
         mdui-color-theme
       
       ">
-        <ul class="mdui-list post-toc"><a class="mdui-list-item mdui-ripple post-toc-link" href="#Homebrew设置socks5"><span class="post-toc-number">1.<span class="post-toc-text">Homebrew设置socks5</span></span></a></a><a class="mdui-list-item mdui-ripple post-toc-link" href="#git走socks5"><span class="post-toc-number">2.<span class="post-toc-text">git走socks5</span></span></a></a><a class="mdui-list-item mdui-ripple post-toc-link" href="#youtube-dl走socks5"><span class="post-toc-number">3.<span class="post-toc-text">youtube-dl走socks5</span></span></a></a></ul>
+        <ul class="mdui-list post-toc"><a class="mdui-list-item mdui-ripple post-toc-link" href="#Homebrew设置socks5"><span class="post-toc-number">1.<span class="post-toc-text">Homebrew设置socks5</span></span></a></a><a class="mdui-list-item mdui-ripple post-toc-link" href="#python-requests走socks5"><span class="post-toc-number">2.<span class="post-toc-text">python requests走socks5</span></span></a></a><a class="mdui-list-item mdui-ripple post-toc-link" href="#git走socks5"><span class="post-toc-number">3.<span class="post-toc-text">git走socks5</span></span></a></a><a class="mdui-list-item mdui-ripple post-toc-link" href="#youtube-dl走socks5"><span class="post-toc-number">4.<span class="post-toc-text">youtube-dl走socks5</span></span></a></a></ul>
       </div>
     </div>
   </div>
@@ -489,7 +489,7 @@
   <i class="mdui-icon material-icons">&#xe242;</i>
 </button>
 <ul class="mdui-menu mdui-typo no-margin-bottom auto-width" id="menu-toc" style="padding: 8px;max-height: 80%">
-  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Homebrew设置socks5"><span class="toc-text">Homebrew设置socks5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git走socks5"><span class="toc-text">git走socks5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#youtube-dl走socks5"><span class="toc-text">youtube-dl走socks5</span></a></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Homebrew设置socks5"><span class="toc-text">Homebrew设置socks5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python-requests走socks5"><span class="toc-text">python requests走socks5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git走socks5"><span class="toc-text">git走socks5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#youtube-dl走socks5"><span class="toc-text">youtube-dl走socks5</span></a></li></ol>
 </ul>
 
 
@@ -671,7 +671,7 @@
   <!-- content warning -->
 <script type="text/ls-javascript" id="content-warning-script">
   (function() {
-    var postLastModifiedDate = 1502109467000
+    var postLastModifiedDate = 1502109706000
     var today = (new Date()).getTime()
     var difference = Math.floor((today - postLastModifiedDate)/(24*60*60*1000))
     if (difference >= 100) {
