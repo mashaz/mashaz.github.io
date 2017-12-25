@@ -5,6 +5,10 @@ tags: raspberry
 ---
 
 网上一大堆Kali Linux for raspberry修改自动登录的中文教程实测又没效果，最新版kali好像修改了方式，终于找到了一个有用的
+
+* Linux kali 4.4.50-v7+ #1 SMP Wed Aug 30 11:08:41 CDT 2017 armv7l GNU/Linux
+* Raspberry 3 model b
+
 ```bash
 ## Kali light xfce4 root autologin (works after lightdm update)
 # @author intrd - http://dann.com.br/ 

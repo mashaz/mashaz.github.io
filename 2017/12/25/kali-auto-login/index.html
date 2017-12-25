@@ -404,7 +404,12 @@
         
         
         <div class="post-content mdui-typo no-margin" id="post-content">
-          <p>网上一大堆Kali Linux for raspberry修改自动登录的中文教程实测又没效果，最新版kali好像修改了方式，终于找到了一个有用的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## Kali light xfce4 root autologin (works after lightdm update)</span></div><div class="line"><span class="comment"># @author intrd - http://dann.com.br/ </span></div><div class="line"><span class="comment"># @license Creative Commons Attribution-ShareAlike 4.0 International License - http://creativecommons.org/licenses/by-sa/4.0/</span></div><div class="line"></div><div class="line">After lighdtdm update root autologin is broken fix doing this:</div><div class="line">nano /etc/lightdm/lightdm.conf</div><div class="line">  at [Seat:*] group uncomment/edit:</div><div class="line">  autologin-user=root</div><div class="line">  autologin-user-timeout=0</div><div class="line"></div><div class="line">now..</div><div class="line">nano /etc/pam.d/lightdm-autologin </div><div class="line">  change:</div><div class="line">    auth      required pam_succeed_if.so user != root quiet_success</div><div class="line">  to:</div><div class="line">    auth      required pam_succeed_if.so user != anything quiet_success</div><div class="line"></div><div class="line">all <span class="keyword">done</span>! :)</div></pre></td></tr></table></figure></p>
+          <p>网上一大堆Kali Linux for raspberry修改自动登录的中文教程实测又没效果，最新版kali好像修改了方式，终于找到了一个有用的</p>
+<ul>
+<li>Linux kali 4.4.50-v7+ #1 SMP Wed Aug 30 11:08:41 CDT 2017 armv7l GNU/Linux</li>
+<li>Raspberry 3 model b</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">## Kali light xfce4 root autologin (works after lightdm update)</span></div><div class="line"><span class="comment"># @author intrd - http://dann.com.br/ </span></div><div class="line"><span class="comment"># @license Creative Commons Attribution-ShareAlike 4.0 International License - http://creativecommons.org/licenses/by-sa/4.0/</span></div><div class="line"></div><div class="line">After lighdtdm update root autologin is broken fix doing this:</div><div class="line">nano /etc/lightdm/lightdm.conf</div><div class="line">  at [Seat:*] group uncomment/edit:</div><div class="line">  autologin-user=root</div><div class="line">  autologin-user-timeout=0</div><div class="line"></div><div class="line">now..</div><div class="line">nano /etc/pam.d/lightdm-autologin </div><div class="line">  change:</div><div class="line">    auth      required pam_succeed_if.so user != root quiet_success</div><div class="line">  to:</div><div class="line">    auth      required pam_succeed_if.so user != anything quiet_success</div><div class="line"></div><div class="line">all <span class="keyword">done</span>! :)</div></pre></td></tr></table></figure>
 
         </div>
 
@@ -663,7 +668,7 @@
   <!-- content warning -->
 <script type="text/ls-javascript" id="content-warning-script">
   (function() {
-    var postLastModifiedDate = 1514199952000
+    var postLastModifiedDate = 1514204948000
     var today = (new Date()).getTime()
     var difference = Math.floor((today - postLastModifiedDate)/(24*60*60*1000))
     if (difference >= 100) {
