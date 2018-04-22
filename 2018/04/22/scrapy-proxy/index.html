@@ -233,14 +233,14 @@
                   <span class="badge new mdui-color-theme-accent" data-badge-caption="">3</span>
                 </a>
               
-                <a href="/tags/sql/" class="mdui-list-item mdui-ripple" style="display: flex">
-                  sql
+                <a href="/tags/django/" class="mdui-list-item mdui-ripple" style="display: flex">
+                  django
                   <div style="flex-grow: 1;"></div>
                   <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
                 </a>
               
-                <a href="/tags/django/" class="mdui-list-item mdui-ripple" style="display: flex">
-                  django
+                <a href="/tags/sql/" class="mdui-list-item mdui-ripple" style="display: flex">
+                  sql
                   <div style="flex-grow: 1;"></div>
                   <span class="badge new mdui-color-theme-accent" data-badge-caption="">1</span>
                 </a>
@@ -408,8 +408,11 @@
         
         
         <div class="post-content mdui-typo no-margin" id="post-content">
-          <h1 id="scrapy设置http和socks5代理-根据代理类型自动切换"><a href="#scrapy设置http和socks5代理-根据代理类型自动切换" class="headerlink" title="scrapy设置http和socks5代理, 根据代理类型自动切换"></a>scrapy设置http和socks5代理, 根据代理类型自动切换</h1><p>scrapy的Request无法支持socks5代理，找了些资料写了个demo方便记录一下。</p>
-<p>需要用到txsocksx这个module。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install txsockstx</div></pre></td></tr></table></figure></p>
+          <h1 id="scrapy设置http和socks5代理-根据代理类型自动切换"><a href="#scrapy设置http和socks5代理-根据代理类型自动切换" class="headerlink" title="scrapy设置http和socks5代理, 根据代理类型自动切换"></a>scrapy设置http和socks5代理, 根据代理类型自动切换</h1><p>scrapy的Request无法支持socks5代理，找了些资料写了个demo方便记录一下。<br>demo: <a href="https://github.com/mashaz/demos/tree/master/scrapy_proxy_demo" target="_blank" rel="external">https://github.com/mashaz/demos/tree/master/scrapy_proxy_demo</a></p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>需要用到txsocksx这个module。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install txsockstx</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>python2.7<br>Scrapy (1.5.0)<br>txsocksx (1.15.0.2)<br>Twisted (17.9.0)</p>
+</blockquote>
 <h2 id="主要代码"><a href="#主要代码" class="headerlink" title="主要代码"></a>主要代码</h2><ul>
 <li><p>settings.py</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">DOWNLOAD_HANDLERS = &#123;</div><div class="line">    <span class="string">"http"</span>: <span class="string">"scrapy_proxy_demo.proxy_switcher.Socks5DownloadHandler"</span>,</div><div class="line">    <span class="string">"https"</span>: <span class="string">"scrapy_proxy_demo.proxy_switcher.Socks5DownloadHandler"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -418,7 +421,6 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> txsocksx.http <span class="keyword">import</span> SOCKS5Agent</div><div class="line"><span class="keyword">from</span> twisted.internet <span class="keyword">import</span> reactor</div><div class="line"><span class="comment">#from scrapy.xlib.tx import TCP4ClientEndpoint # will be deprecated in future, import as the next line</span></div><div class="line"><span class="keyword">from</span> twisted.internet.endpoints <span class="keyword">import</span> TCP4ClientEndpoint</div><div class="line"><span class="keyword">from</span> scrapy.core.downloader.webclient <span class="keyword">import</span> _parse</div><div class="line"><span class="keyword">from</span> scrapy.core.downloader.handlers.http11 <span class="keyword">import</span> HTTP11DownloadHandler, ScrapyAgent</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Socks5DownloadHandler</span><span class="params">(HTTP11DownloadHandler)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">download_request</span><span class="params">(self, request, spider)</span>:</span></div><div class="line">        <span class="string">"""Return a deferred for the SOCKS5 or HTTP download"""</span></div><div class="line">        <span class="keyword">if</span> request.meta[<span class="string">'proxy'</span>].startswith(<span class="string">'socks'</span>):</div><div class="line">            agent = ScrapySocks5Agent(contextFactory=self._contextFactory, pool=self._pool)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            agent = ScrapyAgent(contextFactory=self._contextFactory, pool=self._pool,</div><div class="line">                maxsize=getattr(spider, <span class="string">'download_maxsize'</span>, self._default_maxsize),</div><div class="line">                warnsize=getattr(spider, <span class="string">'download_warnsize'</span>, self._default_warnsize))</div><div class="line"></div><div class="line">        <span class="keyword">return</span> agent.download_request(request)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScrapySocks5Agent</span><span class="params">(ScrapyAgent)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_get_agent</span><span class="params">(self, request, timeout)</span>:</span></div><div class="line">        bindAddress = request.meta.get(<span class="string">'bindaddress'</span>) <span class="keyword">or</span> self._bindAddress</div><div class="line">        proxy = request.meta.get(<span class="string">'proxy'</span>)</div><div class="line">        <span class="keyword">if</span> proxy:</div><div class="line">            _, _, proxyHost, proxyPort, proxyParams = _parse(proxy)</div><div class="line">            _, _, host, port, proxyParams = _parse(request.url)</div><div class="line">            proxyEndpoint = TCP4ClientEndpoint(reactor, proxyHost, proxyPort,</div><div class="line">                                timeout=timeout, bindAddress=bindAddress)</div><div class="line">            agent = SOCKS5Agent(reactor, proxyEndpoint=proxyEndpoint)</div><div class="line">            <span class="keyword">return</span> agent</div><div class="line">        <span class="keyword">return</span> self._Agent(reactor, contextFactory=self._contextFactory,</div><div class="line">            connectTimeout=timeout, bindAddress=bindAddress, pool=self._pool)</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>demo: <a href="https://github.com/mashaz/demos/tree/master/scrapy_proxy_demo" target="_blank" rel="external">https://github.com/mashaz/demos/tree/master/scrapy_proxy_demo</a></p>
 <h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="https://gist.github.com/cydu/8a4b9855c5e21423c9c5" target="_blank" rel="external">https://gist.github.com/cydu/8a4b9855c5e21423c9c5</a></p>
 
         </div>
@@ -468,7 +470,7 @@
         mdui-color-theme
       
       ">
-        <ul class="mdui-list post-toc"><a class="mdui-list-item mdui-ripple post-toc-link" href="#scrapy设置http和socks5代理-根据代理类型自动切换"><span class="post-toc-number">1.<span class="post-toc-text">scrapy设置http和socks5代理, 根据代理类型自动切换</span></span></a><ul class="mdui-list-dense post-toc-child"><a class="mdui-list-item mdui-ripple post-toc-link" href="#主要代码"><span class="post-toc-number">1.1.<span class="post-toc-text">主要代码</span></span></a><ul class="mdui-list-dense post-toc-child"><a class="mdui-list-item mdui-ripple post-toc-link" href="#参考资料"><span class="post-toc-number">1.1.0.1.<span class="post-toc-text">参考资料</span></span></a></a></ul></a></ul></a></ul></a></ul>
+        <ul class="mdui-list post-toc"><a class="mdui-list-item mdui-ripple post-toc-link" href="#scrapy设置http和socks5代理-根据代理类型自动切换"><span class="post-toc-number">1.<span class="post-toc-text">scrapy设置http和socks5代理, 根据代理类型自动切换</span></span></a><ul class="mdui-list-dense post-toc-child"><a class="mdui-list-item mdui-ripple post-toc-link" href="#环境"><span class="post-toc-number">1.1.<span class="post-toc-text">环境</span></span></a></a><a class="mdui-list-item mdui-ripple post-toc-link" href="#主要代码"><span class="post-toc-number">1.2.<span class="post-toc-text">主要代码</span></span></a><ul class="mdui-list-dense post-toc-child"><a class="mdui-list-item mdui-ripple post-toc-link" href="#参考资料"><span class="post-toc-number">1.2.0.1.<span class="post-toc-text">参考资料</span></span></a></a></ul></a></ul></a></ul></a></ul>
       </div>
     </div>
   </div>
@@ -496,7 +498,7 @@
   <i class="mdui-icon material-icons">&#xe242;</i>
 </button>
 <ul class="mdui-menu mdui-typo no-margin-bottom auto-width" id="menu-toc" style="padding: 8px;max-height: 80%">
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#scrapy设置http和socks5代理-根据代理类型自动切换"><span class="toc-text">scrapy设置http和socks5代理, 根据代理类型自动切换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主要代码"><span class="toc-text">主要代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol></li></ol></li></ol></li></ol>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#scrapy设置http和socks5代理-根据代理类型自动切换"><span class="toc-text">scrapy设置http和socks5代理, 根据代理类型自动切换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境"><span class="toc-text">环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#主要代码"><span class="toc-text">主要代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol></li></ol></li></ol></li></ol>
 </ul>
 
 
@@ -678,7 +680,7 @@
   <!-- content warning -->
 <script type="text/ls-javascript" id="content-warning-script">
   (function() {
-    var postLastModifiedDate = 1524405158000
+    var postLastModifiedDate = 1524405440000
     var today = (new Date()).getTime()
     var difference = Math.floor((today - postLastModifiedDate)/(24*60*60*1000))
     if (difference >= 100) {
