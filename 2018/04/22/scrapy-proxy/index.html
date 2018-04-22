@@ -17,7 +17,7 @@
         https://github.com/Halyul/hexo-theme-mdui
         Version: 1.4.6 -->
   <meta charset="UTF-8">
-  <title>2017 - mashaz&#39;s blog</title>
+  <title>scrapy设置http和socks5代理 - mashaz&#39;s blog</title>
 
   <!-- Favicons -->
   <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
@@ -39,7 +39,7 @@
 
   <meta name="author" content="mashaz">
   
-  <meta name="keywords" content="mashaz, blog, hexo, mdui">
+  <meta name="keywords" content="mashaz, blog, hexo, mdui,python">
 
   <!--iOS -->
   <meta name="apple-mobile-web-app-title" content="mashaz&#39;s blog">
@@ -54,11 +54,11 @@
   <!-- The Open Graph protocol -->
   <meta property="og:url" content="https://mashaz.github.io">
   <meta property="og:type" content="blog">
-  <meta property="og:title" content="2017 - mashaz&#39;s blog | mashaz&#39;s blog">
+  <meta property="og:title" content="scrapy设置http和socks5代理 - mashaz&#39;s blog | mashaz&#39;s blog">
   <meta property="og:image" content="/img/favicon.png" />
   
 
-    
+    <meta property="og:article:tag" content="python"> 
 
   <!-- Cache -->
   <meta http-equiv="Cache-Control" content="max-age=7200" />
@@ -104,9 +104,7 @@
   
     mdui-appbar-with-toolbar
   
-  
-    side-content style-fix
-  " onresize="styleChanging()">
+  " >
 
 
   
@@ -117,34 +115,24 @@
 
   
 
-    <div class="mdui-appbar animate-appbar mdui-shadow-0 mdui-appbar-fixed" id="blog-appbar">
-      <div class="mdui-toolbar mdui-color-theme mdui-shadow-2">
-        <button class="mdui-btn mdui-ripple mdui-btn-icon drawer-button" mdui-drawer="{target: '#drawer'}">
-          <i class="mdui-icon">
-            <span></span>
-          </i>
-        </button>
-        
-          <a href="/" class="mdui-typo-headline">
-            Posts
-          </a>
-          <span class="appbar-border-line mdui-hidden-xs"></span>
-        
-        
-          <span class="mdui-typo-title mdui-hidden-xs"
-            
-              onclick="smoothScroll.animateScroll( 0 );"
-            
-          >
-            2017
-          </span>
-        
-        
-        
-          <div class="flex-spacer"></div>
-        
-        
-        
+  <div class="mdui-appbar mdui-shadow-0 mdui-appbar-fixed animate-appbar" id="blog-appbar">
+    <div class="mdui-toolbar mdui-color-theme">
+      <button class="mdui-btn mdui-ripple mdui-btn-icon drawer-button" mdui-drawer="{target: '#drawer'}">
+        <i class="mdui-icon">
+          <span></span>
+        </i>
+      </button>
+      
+        <a href="/" class="mdui-typo-headline">
+          Posts
+        </a>
+      
+      
+      
+        <div class="flex-spacer"></div>
+      
+      
+      
   <button class="mdui-btn mdui-ripple mdui-btn-icon" mdui-menu="{target: '#menu-index-more'}" id="index-more">
     <i class="mdui-icon material-icons">&#xe417;</i>
   </button>
@@ -162,9 +150,11 @@
   </ul>
 
 
-      </div>
     </div>
-  
+  </div>
+
+
+  <div id="search-cover" searchResult onclick="closeSearch()"></div>
 
 
 
@@ -173,8 +163,6 @@
 
   
   <div class="mdui-drawer mdui-drawer-full-height mdui-drawer-close
-  
-    drawer-fix
   " id="drawer" style="z-index: 2001;">
   <div class="userview" style="background-image: url(/img/bg.png)">
   <div class="overlay">
@@ -308,7 +296,7 @@
             </div>
           </div>
         
-        <div class="mdui-collapse-item mdui-collapse-item-open">
+        <div class="mdui-collapse-item ">
           <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
             <i class="mdui-list-item-icon mdui-icon material-icons">&#xe916;</i>
             <div class="mdui-list-item-content">年份</div>
@@ -364,384 +352,156 @@
 
 
 
-  
-
-  <style id="side_content_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("side_content_css","/css/src/now/side_content.min.css?6QUsjVbcFbaNw1GxvnmHrA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-
-<div id="side-content" class="mdui-color-yellow animate-drawer">
-  <div class="mdui-grid-tile" style="overflow: visible;">
-    <div class="bg">
-      <img src="/img/random/picHD_1.png" />
-    </div>
-    <div class="mdui-grid-tile-actions mdui-grid-tile-actions-top mdui-grid-tile-actions-gradient">
-      <div class="flex-spacer"></div>
-      <div class="mdui-grid-tile-buttons">
-        
-
-      </div>
-    </div>
-  </div>
-  <div class="content">
-    <img class="mdui-img-circle avatar" src="/img/cartman.png"/>
-    <div class="author mdui-text-center">
-      mashaz
-    </div>
-    <div class="name">
-      2017
-    </div>
-    <div class="length">
-      
-      6篇文章
-    </div>
-  </div>
-</div>
-<div id="contentLocation"></div>
-
-
 
 <main>
   
-  <div class="posts-container column-3">
 
-  </div>
-  <div id="content-list" class="animate-post">
+  <style id="post_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("post_css","/css/src/now/post.min.css?xj++jGBLUwFrA9Y0MJqcKQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+<style id="lightgallery_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("lightgallery_css","/css/src/lightgallery.min.css?k96yraexoRn3+CTmPycWNA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+<style>
+  .lg-outer .lg-item {
+    background-image: url("/img/loading.gif");
+  }
+</style>
+<div class="post-warpper animate-post">
+  <div class="post-bg-color
     
-      <div class="content-item">
+      
+        mdui-color-theme
+      
+    
+  "></div>
+  <div class="post-header
+    
+      
+        mdui-color-theme
+      
+    
+  ">
+    <div class="post-header-container">
+      <div class="post-title mdui-text-truncate">scrapy设置http和socks5代理</div>
+      <div class="post-actions mdui-valign">
+        <div>
+          <span>编写时间：</span>
+          <span style="float: right">4月 22, 2018</span>
+          
+        </div>
         
-  
-<div class="mdui-card card-bottom-fix mdui-hoverable">
-  <div class="mdui-card-header posts-header">
-    <img class="mdui-card-header-avatar" src="/img/cartman.png"/>
-    <div class="content mdui-valign">
-      <div class="mdui-typo-body-1-opacity mdui-typo">
-        <span>mashaz</span>
-        <span> · </span>
-        <span>5月 21, 2017</span>
+
+        
+
       </div>
     </div>
-  <div class="flex-spacer"></div>
-    <a href="/2017/05/21/wishlist-lua/" target="_self" class="mdui-btn mdui-btn-icon mdui-ripple btn-dense"><i class="mdui-icon material-icons">&#xe89e;</i></a>
   </div>
-  <div class="mdui-card-content posts-content">
-    <div class="posts-excerpt">
-      <a href="/2017/05/21/wishlist-lua/" target="_self" class="posts-title mdui-typo-title no-text-decoration">
+  <div class="post-container flex-spacer">
+    <div class="post-adjust">
+      <div class="mdui-card card-bottom-fix menu-fix mdui-hoverable" id="blog-post">
+        <div class="warning">
+          这篇文章最后修改于
+          <span id="content-warning"></span>
+          天之前。
+          本页内容可能已经过时！
+        </div>
         
-        新技能愿望单--Lua
+        
+        <div class="post-content mdui-typo no-margin" id="post-content">
+          <h1 id="scrapy设置http和socks5代理-根据代理类型自动切换"><a href="#scrapy设置http和socks5代理-根据代理类型自动切换" class="headerlink" title="scrapy设置http和socks5代理, 根据代理类型自动切换"></a>scrapy设置http和socks5代理, 根据代理类型自动切换</h1><p>scrapy的Request无法支持socks5代理，找了些资料写了个demo方便记录一下。</p>
+<p>需要用到txsocksx这个module。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install txsockstx</div></pre></td></tr></table></figure></p>
+<h2 id="主要代码"><a href="#主要代码" class="headerlink" title="主要代码"></a>主要代码</h2><ul>
+<li><p>settings.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">DOWNLOAD_HANDLERS = &#123;</div><div class="line">    <span class="string">"http"</span>: <span class="string">"scrapy_proxy_demo.proxy_switcher.Socks5DownloadHandler"</span>,</div><div class="line">    <span class="string">"https"</span>: <span class="string">"scrapy_proxy_demo.proxy_switcher.Socks5DownloadHandler"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>new a file named proxy_switcher.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> txsocksx.http <span class="keyword">import</span> SOCKS5Agent</div><div class="line"><span class="keyword">from</span> twisted.internet <span class="keyword">import</span> reactor</div><div class="line"><span class="comment">#from scrapy.xlib.tx import TCP4ClientEndpoint # will be deprecated in future, import as the next line</span></div><div class="line"><span class="keyword">from</span> twisted.internet.endpoints <span class="keyword">import</span> TCP4ClientEndpoint</div><div class="line"><span class="keyword">from</span> scrapy.core.downloader.webclient <span class="keyword">import</span> _parse</div><div class="line"><span class="keyword">from</span> scrapy.core.downloader.handlers.http11 <span class="keyword">import</span> HTTP11DownloadHandler, ScrapyAgent</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Socks5DownloadHandler</span><span class="params">(HTTP11DownloadHandler)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">download_request</span><span class="params">(self, request, spider)</span>:</span></div><div class="line">        <span class="string">"""Return a deferred for the SOCKS5 or HTTP download"""</span></div><div class="line">        <span class="keyword">if</span> request.meta[<span class="string">'proxy'</span>].startswith(<span class="string">'socks'</span>):</div><div class="line">            agent = ScrapySocks5Agent(contextFactory=self._contextFactory, pool=self._pool)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            agent = ScrapyAgent(contextFactory=self._contextFactory, pool=self._pool,</div><div class="line">                maxsize=getattr(spider, <span class="string">'download_maxsize'</span>, self._default_maxsize),</div><div class="line">                warnsize=getattr(spider, <span class="string">'download_warnsize'</span>, self._default_warnsize))</div><div class="line"></div><div class="line">        <span class="keyword">return</span> agent.download_request(request)</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScrapySocks5Agent</span><span class="params">(ScrapyAgent)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_get_agent</span><span class="params">(self, request, timeout)</span>:</span></div><div class="line">        bindAddress = request.meta.get(<span class="string">'bindaddress'</span>) <span class="keyword">or</span> self._bindAddress</div><div class="line">        proxy = request.meta.get(<span class="string">'proxy'</span>)</div><div class="line">        <span class="keyword">if</span> proxy:</div><div class="line">            _, _, proxyHost, proxyPort, proxyParams = _parse(proxy)</div><div class="line">            _, _, host, port, proxyParams = _parse(request.url)</div><div class="line">            proxyEndpoint = TCP4ClientEndpoint(reactor, proxyHost, proxyPort,</div><div class="line">                                timeout=timeout, bindAddress=bindAddress)</div><div class="line">            agent = SOCKS5Agent(reactor, proxyEndpoint=proxyEndpoint)</div><div class="line">            <span class="keyword">return</span> agent</div><div class="line">        <span class="keyword">return</span> self._Agent(reactor, contextFactory=self._contextFactory,</div><div class="line">            connectTimeout=timeout, bindAddress=bindAddress, pool=self._pool)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>demo: <a href="https://github.com/mashaz/demos/tree/master/scrapy_proxy_demo" target="_blank" rel="external">https://github.com/mashaz/demos/tree/master/scrapy_proxy_demo</a></p>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="https://gist.github.com/cydu/8a4b9855c5e21423c9c5" target="_blank" rel="external">https://gist.github.com/cydu/8a4b9855c5e21423c9c5</a></p>
+
+        </div>
+
+        
+          <div class="license mdui-typo">
+            <span>
+              本文许可协议：
+              
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a>
+              
+            </span>
+            <br />
+            <span>本文永久链接：<a href="https://mashaz.github.io/2018/04/22/scrapy-proxy/">https://mashaz.github.io/2018/04/22/scrapy-proxy/</a></span>
+            
+              <br />
+              <span>本文Markdown：<a href="https://mashaz.github.io/2018/04/22/scrapy-proxy/scrapy-proxy.md">https://mashaz.github.io/2018/04/22/scrapy-proxy/scrapy-proxy.md</a></span>
+            
+          </div>
+        
+
+        
+          <div class="posts-info">
+            
+            <div class="flex-spacer"></div>
+            
+            
+              <div class="mdui-chip">
+                <span class="mdui-chip-icon"><i class="mdui-icon mdui-text-color-black-icon fa fa-tags"></i></span>
+              </div>
+              <div class="content mdui-typo">
+                
+                  <a href="/tags/python/">
+                    <span>python</span>
+                  </a>
+                
+              </div>
+            
+          </div>
+        
+        
+          
+        
+      </div>
+      <div id="card-toc" class="
+      
+        mdui-color-theme
+      
+      ">
+        <ul class="mdui-list post-toc"><a class="mdui-list-item mdui-ripple post-toc-link" href="#scrapy设置http和socks5代理-根据代理类型自动切换"><span class="post-toc-number">1.<span class="post-toc-text">scrapy设置http和socks5代理, 根据代理类型自动切换</span></span></a><ul class="mdui-list-dense post-toc-child"><a class="mdui-list-item mdui-ripple post-toc-link" href="#主要代码"><span class="post-toc-number">1.1.<span class="post-toc-text">主要代码</span></span></a><ul class="mdui-list-dense post-toc-child"><a class="mdui-list-item mdui-ripple post-toc-link" href="#参考资料"><span class="post-toc-number">1.1.0.1.<span class="post-toc-text">参考资料</span></span></a></a></ul></a></ul></a></ul></a></ul>
+      </div>
+    </div>
+  </div>
+  <div class="post-pagination mdui-color-theme">
+  
+    <div class="prev mdui-ripple mdui-color-theme mdui-valign">
+      <a href="/2017/12/25/kali-auto-login/" class="content no-text-decoration mdui-text-left">
+        <div>
+          <i class="mdui-icon material-icons mdui-text-center">&#xe5cb;</i>
+          <span class="mdui-typo-body-2-opacity mdui-text-center">新的文章</span>
+        </div>
+        <div class="mdui-typo-title mdui-text-truncate">
+          树莓派Kali Linux自动登录
+        </div>
       </a>
-      <div class="posts-strip mdui-typo-body-1">
-        打开Don’t starve togeter源码一看，也太美了吧，从没接触过游戏代码，原来就是这样的吗？Add Lua to my wishlist...
-      </div>
     </div>
-    <div class="flex-spacer"></div>
-    
-  </div>
   
+
+  
+      <div class="flex-spacer mdui-hidden-xs"></div>
+    
 </div>
 
-
-
-      </div>
-    
-      <div class="content-item">
-        
-  
-<div class="mdui-card card-bottom-fix mdui-hoverable">
-  <div class="mdui-card-header posts-header">
-    <img class="mdui-card-header-avatar" src="/img/cartman.png"/>
-    <div class="content mdui-valign">
-      <div class="mdui-typo-body-1-opacity mdui-typo">
-        <span>mashaz</span>
-        <span> · </span>
-        <span>5月 15, 2017</span>
-      </div>
-    </div>
-  <div class="flex-spacer"></div>
-    <a href="/2017/05/15/ssh-key/" target="_self" class="mdui-btn mdui-btn-icon mdui-ripple btn-dense"><i class="mdui-icon material-icons">&#xe89e;</i></a>
-  </div>
-  <div class="mdui-card-content posts-content">
-    <div class="posts-excerpt">
-      <a href="/2017/05/15/ssh-key/" target="_self" class="posts-title mdui-typo-title no-text-decoration">
-        
-        SSH免密码登录
-      </a>
-      <div class="posts-strip mdui-typo-body-1">
-        
-本地环境 macOS
-服务器 CentOS 6
-
-
-在Mac中打开终端，切换...
-      </div>
-    </div>
-    <div class="flex-spacer"></div>
-    
-  </div>
-  
-    <div class="mdui-divider" style="margin: 0 16px;"></div>
-    <div class="posts-bottom">
-      
-      
-        <div class="mdui-chip">
-          <span class="mdui-chip-icon"><i class="mdui-icon
-           
-             mdui-text-color-black-icon
-           
-           fa fa-tags mdui-text-center"></i></span>
-        </div>
-        <div class="content mdui-typo">
-          
-            <a href="/tags/ssh/">
-              <span>ssh</span>
-            </a>
-          
-        </div>
-      
-    </div>
-  
-</div>
-
-
-
-      </div>
-    
-      <div class="content-item">
-        
-  
-<div class="mdui-card card-bottom-fix mdui-hoverable">
-  <div class="mdui-card-header posts-header">
-    <img class="mdui-card-header-avatar" src="/img/cartman.png"/>
-    <div class="content mdui-valign">
-      <div class="mdui-typo-body-1-opacity mdui-typo">
-        <span>mashaz</span>
-        <span> · </span>
-        <span>5月 07, 2017</span>
-      </div>
-    </div>
-  <div class="flex-spacer"></div>
-    <a href="/2017/05/07/ffmpeg/" target="_self" class="mdui-btn mdui-btn-icon mdui-ripple btn-dense"><i class="mdui-icon material-icons">&#xe89e;</i></a>
-  </div>
-  <div class="mdui-card-content posts-content">
-    <div class="posts-excerpt">
-      <a href="/2017/05/07/ffmpeg/" target="_self" class="posts-title mdui-typo-title no-text-decoration">
-        
-        自己常用的ffmpeg命令
-      </a>
-      <div class="posts-strip mdui-typo-body-1">
-        
-youtube-dl下来的高清youtube视频和音频是分离的，这时候需要
-ffmpeg -i audio...
-      </div>
-    </div>
-    <div class="flex-spacer"></div>
-    
-  </div>
-  
-    <div class="mdui-divider" style="margin: 0 16px;"></div>
-    <div class="posts-bottom">
-      
-      
-        <div class="mdui-chip">
-          <span class="mdui-chip-icon"><i class="mdui-icon
-           
-             mdui-text-color-black-icon
-           
-           fa fa-tags mdui-text-center"></i></span>
-        </div>
-        <div class="content mdui-typo">
-          
-            <a href="/tags/ffmpeg/">
-              <span>ffmpeg</span>
-            </a>
-          
-        </div>
-      
-    </div>
-  
-</div>
-
-
-
-      </div>
-    
-      <div class="content-item">
-        
-  
-<div class="mdui-card card-bottom-fix mdui-hoverable">
-  <div class="mdui-card-header posts-header">
-    <img class="mdui-card-header-avatar" src="/img/cartman.png"/>
-    <div class="content mdui-valign">
-      <div class="mdui-typo-body-1-opacity mdui-typo">
-        <span>mashaz</span>
-        <span> · </span>
-        <span>5月 04, 2017</span>
-      </div>
-    </div>
-  <div class="flex-spacer"></div>
-    <a href="/2017/05/04/csv-to-sqlite/" target="_self" class="mdui-btn mdui-btn-icon mdui-ripple btn-dense"><i class="mdui-icon material-icons">&#xe89e;</i></a>
-  </div>
-  <div class="mdui-card-content posts-content">
-    <div class="posts-excerpt">
-      <a href="/2017/05/04/csv-to-sqlite/" target="_self" class="posts-title mdui-typo-title no-text-decoration">
-        
-        csv转换到sqlite3
-      </a>
-      <div class="posts-strip mdui-typo-body-1">
-        
-      </div>
-    </div>
-    <div class="flex-spacer"></div>
-    
-  </div>
-  
-    <div class="mdui-divider" style="margin: 0 16px;"></div>
-    <div class="posts-bottom">
-      
-      
-        <div class="mdui-chip">
-          <span class="mdui-chip-icon"><i class="mdui-icon
-           
-             mdui-text-color-black-icon
-           
-           fa fa-tags mdui-text-center"></i></span>
-        </div>
-        <div class="content mdui-typo">
-          
-            <a href="/tags/sql/">
-              <span>sql</span>
-            </a>
-          
-        </div>
-      
-    </div>
-  
-</div>
-
-
-
-      </div>
-    
-      <div class="content-item">
-        
-  
-<div class="mdui-card card-bottom-fix mdui-hoverable">
-  <div class="mdui-card-header posts-header">
-    <img class="mdui-card-header-avatar" src="/img/cartman.png"/>
-    <div class="content mdui-valign">
-      <div class="mdui-typo-body-1-opacity mdui-typo">
-        <span>mashaz</span>
-        <span> · </span>
-        <span>5月 04, 2017</span>
-      </div>
-    </div>
-  <div class="flex-spacer"></div>
-    <a href="/2017/05/04/puerto-rico/" target="_self" class="mdui-btn mdui-btn-icon mdui-ripple btn-dense"><i class="mdui-icon material-icons">&#xe89e;</i></a>
-  </div>
-  <div class="mdui-card-content posts-content">
-    <div class="posts-excerpt">
-      <a href="/2017/05/04/puerto-rico/" target="_self" class="posts-title mdui-typo-title no-text-decoration">
-        
-        有趣的知识 -- 波多黎各(The Commonwealth of Puerto Rico)
-      </a>
-      <div class="posts-strip mdui-typo-body-1">
-        
-      </div>
-    </div>
-    <div class="flex-spacer"></div>
-    
-  </div>
-  
-    <div class="mdui-divider" style="margin: 0 16px;"></div>
-    <div class="posts-bottom">
-      
-      
-        <div class="mdui-chip">
-          <span class="mdui-chip-icon"><i class="mdui-icon
-           
-             mdui-text-color-black-icon
-           
-           fa fa-tags mdui-text-center"></i></span>
-        </div>
-        <div class="content mdui-typo">
-          
-            <a href="/tags/fun/">
-              <span>fun</span>
-            </a>
-          
-        </div>
-      
-    </div>
-  
-</div>
-
-
-
-      </div>
-    
-      <div class="content-item">
-        
-  
-<div class="mdui-card card-bottom-fix mdui-hoverable">
-  <div class="mdui-card-header posts-header">
-    <img class="mdui-card-header-avatar" src="/img/cartman.png"/>
-    <div class="content mdui-valign">
-      <div class="mdui-typo-body-1-opacity mdui-typo">
-        <span>mashaz</span>
-        <span> · </span>
-        <span>5月 01, 2017</span>
-      </div>
-    </div>
-  <div class="flex-spacer"></div>
-    <a href="/2017/05/01/word-cloud/" target="_self" class="mdui-btn mdui-btn-icon mdui-ripple btn-dense"><i class="mdui-icon material-icons">&#xe89e;</i></a>
-  </div>
-  <div class="mdui-card-content posts-content">
-    <div class="posts-excerpt">
-      <a href="/2017/05/01/word-cloud/" target="_self" class="posts-title mdui-typo-title no-text-decoration">
-        
-        分词结果生成词云wordcloud
-      </a>
-      <div class="posts-strip mdui-typo-body-1">
-        
-      </div>
-    </div>
-    <div class="flex-spacer"></div>
-    
-  </div>
-  
-    <div class="mdui-divider" style="margin: 0 16px;"></div>
-    <div class="posts-bottom">
-      
-      
-        <div class="mdui-chip">
-          <span class="mdui-chip-icon"><i class="mdui-icon
-           
-             mdui-text-color-black-icon
-           
-           fa fa-tags mdui-text-center"></i></span>
-        </div>
-        <div class="content mdui-typo">
-          
-            <a href="/tags/python/">
-              <span>python</span>
-            </a>
-          
-        </div>
-      
-    </div>
-  
-</div>
-
-
-
-      </div>
-    
-  </div>
-  
-
-
-<button id="toTop" class="mdui-fab mdui-color-theme-accent mdui-ripple mdui-fab-fixed mdui-fab-hide" style="z-index: 9;" onclick="smoothScroll.animateScroll( 0 );">
-  <i class="mdui-icon material-icons">&#xe5d8;</i>
+  <button id="button-toc" class="mdui-fab mdui-color-theme-accent mdui-ripple mdui-fab-fixed mdui-hidden-md-up" style="z-index: 9;" mdui-menu="{target: '#menu-toc', fixed: true}">
+  <i class="mdui-icon material-icons">&#xe242;</i>
 </button>
+<ul class="mdui-menu mdui-typo no-margin-bottom auto-width" id="menu-toc" style="padding: 8px;max-height: 80%">
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#scrapy设置http和socks5代理-根据代理类型自动切换"><span class="toc-text">scrapy设置http和socks5代理, 根据代理类型自动切换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#主要代码"><span class="toc-text">主要代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol></li></ol></li></ol></li></ol>
+</ul>
 
+
+
+</div>
 
 </main>
 
@@ -790,133 +550,159 @@ ffmpeg -i audio...
 </script>
 
 
-
-
-  <script>
-    window.addEventListener("scroll", function(){
-       document.querySelector('#archives .bg .mdui-img-fluid.mdui-img-rounded')
-        .style.transform = 'translateY(' + document.body.scrollTop * 0.4 + 'px)';
-    })
-  </script>
-  
-    <script type="text/ls-javascript" id="about-me-dialog-script">
-      /* aboutme dialog */
-      (function() {
-        var collapseItems = document.querySelectorAll('div.mdui-collapse-item')
-
-        for (i = 0; i < collapseItems.length; i++) {
-          collapseItems[i].addEventListener("click", toggleText);
-        }
-
-        function toggleText() {
-          this.addEventListener('open.mdui.collapse', function() {
-              this.classList.add('hide-more');
-              this.classList.remove('hide-less');
-          });
-          this.addEventListener('close.mdui.collapse', function() {
-            this.classList.remove('hide-more');
-            this.classList.add('hide-less');
-          });
-        }
-
-        var cardFlag = false;
-        var aboutmeDialog = document.querySelector('div#aboutmeDialog')
-        var aboutmeAppbar = document.querySelector('div#aboutmeAppbar')
-
-        aboutmeDialog.addEventListener('scroll', function() {
-          var cardLocation = document.querySelector('div#cardLocation').getBoundingClientRect().top
-          if (!cardFlag && cardLocation < 0) {
-            aboutmeAppbar.classList.add('style-fix');
-            cardFlag = true;
-          } else if (cardFlag && cardLocation >= 0) {
-            aboutmeAppbar.classList.remove('style-fix');
-            cardFlag = false;
-          };
-        });
-
-        var cardLocation = document.querySelector('div#cardLocation').getBoundingClientRect().top
-
-        aboutmeDialog.addEventListener('open.mdui.dialog', function() {
-          if (!cardFlag && cardLocation < 0) {
-            aboutmeAppbar.classList.add('style-fix');
-            cardFlag = true;
-          };
-        });
-        aboutmeDialog.addEventListener('close.mdui.dialog', function() {
-          if (cardFlag && cardLocation < 0) {
-            aboutmeAppbar.classList.remove('style-fix');
-            cardFlag = false;
-          };
-        });
-      })();
-    </script>
-  
-
-
-
-
-
-
-
-  <script type="text/ls-javascript" id="style-changing-script">
-  var content_flag = false;
-  var appbar = document.querySelector('div#blog-appbar')
-  var body = document.querySelector('body')
-
-  window.addEventListener('scroll', function() {
-    var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-    var divTop = document.querySelector('div#contentLocation').offsetTop
-    var contentLocation = divTop - scrollTop - 56;
-
-    if (!content_flag && contentLocation < 0 && window.innerWidth < 860) {
-      appbar.classList.add('style-fix');
-      body.classList.remove('style-fix');
-      content_flag = true;
-    } else if (content_flag && contentLocation >= 0 && window.innerWidth < 860) {
-      appbar.classList.remove('style-fix');
-      body.classList.add('style-fix');
-      content_flag = false;
-    };
-  })
-
-  function styleChanging() {
-    var hide = new mdui.Headroom('div#blog-appbar');
-    var windowWidth = window.innerWidth,
-      toLeftWidth = 860;
-    if (windowWidth < toLeftWidth) {
-      hide.enable();
-    } else {
-      hide.disable();
-    }
-  };
-  styleChanging();
-</script>
-
-
-
-
-
-
-  <script type="text/ls-javascript" id="to-top-script">
-  /* fab */
+  <script type="text/ls-javascript" id="appbar-script">
+  /* post appbar */
   (function() {
     var pageFlag = false;
-    var fab = new mdui.Fab('#toTop');
-    fab.hide();
+    var appbar = new mdui.Headroom('#blog-appbar');
+    appbar.disable();
+    var toolbar = document.querySelector('#blog-appbar .mdui-toolbar')
+
     window.addEventListener('scroll', function() {
       var bodyTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
       var divTop = document.querySelector('div#top').offsetTop
+
       var pageLocation = divTop - bodyTop;
       if (!pageFlag && pageLocation < 0) {
-        fab.show();
+        toolbar.classList.add('mdui-shadow-2')
+        appbar.enable();
         pageFlag = true;
       } else if (pageFlag && pageLocation >= 0) {
-        fab.hide();
+        toolbar.classList.remove('mdui-shadow-2')
+        appbar.disable();
         pageFlag = false;
       }
-    });
+    })
   })();
 </script>
+
+  <script type="text/ls-javascript" id="toc-active-script">
+  if (document.querySelector('ul#menu-toc > ol') !== null && document.querySelector('div#card-toc > ul') !== null) {
+    window.addEventListener("load", function() {
+      var timer;
+      function doWork() {
+        listens.forEach(function(value, index) {
+          value[1]();
+          value[0].classList.remove("mdui-list-item-active");
+        })
+        let actionToc = (listens[listens.reduce(function(r, v, index) {
+          if (v[2] == true) {
+            return index;
+          } else return r;
+        }, undefined)] || [])[0] || listens[0][0];
+        actionToc.classList.add("mdui-list-item-active");
+        if(actionToc.getClientRects().length == 0)return;
+        showToc(actionToc);
+      }
+
+      function showToc(toc) {
+        let offsetTop = toc.getClientRects()[0].top - cardToc.getClientRects()[0].top - 40;
+        let offsetBottom = toc.getClientRects()[0].bottom - cardToc.getClientRects()[0].bottom + 40;
+        let offset = 0;
+        if (offsetTop < 0) offset = offsetTop;
+        if (offsetBottom > 0) offset = offsetBottom;
+        var targetTop = Math.max(0, Math.min(cardToc.scrollTop + offset, toclist.offsetHeight - cardToc.offsetHeight));
+        clearInterval(timer);
+        timer = setInterval(function() {
+          var now = cardToc.scrollTop;
+          var speed = (targetTop - now) / 10;
+          speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+          if (Math.abs(now - targetTop) < 1) {
+            clearInterval(timer);
+          }
+          cardToc.scrollTop = now + speed;
+        }, 30);
+      }
+      var listens = [];
+      var cardToc = document.querySelector('#card-toc');
+      var links = document.querySelectorAll("a.post-toc-link");
+      var toclist = document.querySelector("#card-toc > ul");
+      Array.prototype.forEach.call(links, function(value, index) {
+        var id = (value.getAttribute("href") || "#").slice(1);
+        var element = document.getElementById(id);
+        listens.push([value, function() {
+          var readed = false;
+          var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+          if (element.offsetTop <= scrollTop + element.clientHeight + 64) {
+            readed = true;
+          } else {
+            readed = false;
+          }
+          listens[index][2] = readed;
+        }, false])
+      })
+      doWork();
+      window.addEventListener("scroll", doWork)
+    });
+  }
+</script>
+
+  <script type="text/ls-javascript" id="post-lg-script">
+  var images = document.querySelectorAll('#post-content img')
+  for (i = 0; i < images.length; i++) {
+    images[i].addEventListener("click", openLG);
+  }
+  function openLG() {
+    var img_src = this.getAttribute('src');
+    var img_alt = this.getAttribute('alt');
+    lightGallery(this, {
+      dynamic: true,
+      counter: false,
+      dynamicEl: [{
+        "src": img_src,
+        'subHtml': "<span author>mashaz</span> • 公开<div descr>" + img_alt + "</div>"
+      }],
+    });
+  }
+</script>
+
+  <!-- post toc -->
+<script type="text/ls-javascript" id="post-toc-script">
+  (function() {
+    if (document.readyState === 'complete' || document.readyState !== 'loading') {
+      tocHide();
+    } else {
+      document.addEventListener('DOMContentLoaded', tocHide);
+    }
+    function tocHide() {
+      if(document.querySelector('ul#menu-toc > ol') === null && document.querySelector('div#card-toc > ul') === null)
+      {
+        document.querySelector('button#button-toc').classList.add('mdui-hidden')
+        document.querySelector('div#card-toc').classList.add('mdui-hidden')
+        document.querySelector('.post-container').classList.add('no-toc')
+      };
+    }
+  })();
+</script>
+
+  <!-- content warning -->
+<script type="text/ls-javascript" id="content-warning-script">
+  (function() {
+    var postLastModifiedDate = 1524405158000
+    var today = (new Date()).getTime()
+    var difference = Math.floor((today - postLastModifiedDate)/(24*60*60*1000))
+    if (difference >= 100) {
+      document.querySelector('div.warning').style.display = 'block'
+      document.querySelector('#content-warning').textContent = difference
+    }
+  })();
+</script>
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -925,6 +711,8 @@ ffmpeg -i audio...
   
 
 
+
+  <script>lsloader.load("lightgallery_js","/js/lightgallery.min.js?tQptxVaCRzQ3zx70gMUYig==", true)</script>
 
 
 
